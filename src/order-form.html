@@ -7,23 +7,24 @@
     <link rel="stylesheet" href="form-styles.css">
 </head>
 <style>
-    body {
-    font-family: Arial, sans-serif;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #000000;
+    background-color: #181818; /* Dark background */
 }
 
 .form-container {
-    border: 1px solid #ddd;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: none;
+    padding: 25px;
+    background-color: #222; /* Darker background for form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
-    border-radius: 8px;
+    border-radius: 10px;
+    color: #fff; /* White text for better contrast */
 }
 
 form {
@@ -32,29 +33,81 @@ form {
 }
 
 label {
-    margin-top: 10px;
+    margin-top: 15px;
+    color: #ddd; /* Lighter text color for labels */
 }
 
-input {
-    padding: 10px;
+input,
+select {
+    padding: 12px;
     margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
+    border: 1px solid #444; /* Dark border */
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    background-color: #333; /* Input background color */
+    color: #eee; /* Input text color */
 }
 
-button:hover {
-    background-color: #0056b3;
+input[type="color"] {
+    padding: 2px; /* Smaller padding for color picker */
+    height: 40px; /* Uniform height */
+    width: 100%;
+    border: none;
+}
+
+.button-64 {
+    display: inline-flex;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  color: #FFFFFF;
+  font-family: 'Phantomsans', sans-serif; /* Ensure the font is loaded */
+  font-size: 20px;
+  line-height: 1em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  max-width: 100%;
+  min-width: 140px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 269px;
+  }
+}
+
+select {
+    appearance: none; /* Removes default styling */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTAgNiI+PHBvbHlnb24gcG9pbnRzPSIwLDAgMTAsMCA1LDYiIGZpbGw9IiNmZmYiLz48L3N2Zz4='); /* Custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 25px;
 }
 
 </style>
@@ -64,16 +117,37 @@ button:hover {
         <form id="orderForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-
+    
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" required>
 
+            <label for="name">Number:</label>
+            <input type="text" id="number" name="number" required>
+    
             <label for="quantity">Quantity:</label>
             <input type="number" id="quantity" name="quantity" required>
-
-            <button type="submit">Submit</button>
+    
+            <label for="size">Size (in inches):</label>
+            <select id="size" name="size" required>
+                <option value="10x10">10x10</option>
+                <option value="12x12">12x12</option>
+                <option value="14x14">14x14</option>
+                <option value="16x16">16x16</option>
+                <option value="18x18">18x18</option>
+            </select>
+    
+            <label for="color">Choose Color:</label>
+            <input type="color" id="color" name="color" value="#ff0000">
+    
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="cod">Cash on Delivery</option>
+                <option value="online">Online Payment</option>
+            </select>
+            <center><a href="thank-you.html"><button class="button-64 my-4" role="button" ><span class="text">Sumbit</span></button></a></center>
         </form>
     </div>
+    
 
     <script src="form-script.js"></script>
 </body>

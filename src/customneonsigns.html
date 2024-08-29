@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Neon Signs | Neon Artist</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+  <style>
+    .reviews {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: #222;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.reviews h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.review {
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.review p {
+  color: #eee;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.review strong {
+  color: #ff4d4d;
+}
+
+.review span {
+  font-size: 0.9rem;
+}
+/* Frequently Bought Together Section Styles */
+.related-items {
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background to make the section stand out */
+  margin-top: 20px;
+}
+
+.related-items h3 {
+  font-family: 'Babbins', sans-serif;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.related-items p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.related-items .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  gap: 15px; /* Space between the cards */
+}
+
+.related-items .card {
+  width: 18rem; /* Set a fixed width for the cards */
+  margin: 0 10px; /* Margin between cards */
+  transition: transform 0.2s;
+}
+
+.related-items .card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.related-items .card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px; /* Rounded corners for images */
+}
+
+.related-items .button-64 {
+  background-color: #ff4081; /* Custom button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.related-items .button-64:hover {
+  background-color: #e91e63; /* Darker shade on hover */
+}
+
+@media (max-width: 992px) {
+  .related-items .card {
+    width: 16rem; /* Adjust width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .related-items .card {
+    width: 14rem; /* Adjust width for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .related-items .row {
+    flex-direction: column; /* Stack cards vertically on very small screens */
+  }
+}
+
+    body {
+      background-color: #111;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    .product-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .product-header h1 {
+      font-size: 2.5rem;
+      color: #fff9f9;
+      margin-bottom: 0.5rem;
+    }
+    .product-header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .product-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .product-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+    .product-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product-details {
+      flex: 1;
+      min-width: 300px;
+    }
+    .product-description {
+      margin-top: 1.5rem;
+    }
+    .product-features ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .product-features li {
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      color: #eee;
+    }
+    .buy-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #ff4d4d;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .buy-button:hover {
+      background-color: #e63939;
+    }
+    .form-container {
+      background-color: #222;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+    .form-container h2 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .form-container input, .form-container select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .reviews, .related-items {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #222;
+      border-radius: 8px;
+    }
+    .reviews h3, .related-items h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 768px) {
+      .product-content {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .button-64 {
+    display: inline-flex;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  color: #FFFFFF;
+  font-family: 'Phantomsans', sans-serif; /* Ensure the font is loaded */
+  font-size: 20px;
+  line-height: 1em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  max-width: 100%;
+  min-width: 140px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 269px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Product Header -->
+    <div class="product-header">
+      <h1>Custom Neon Signs</h1>
+      <p>Illuminate your space with a touch of personality!</p>
+    </div>
+    
+    <!-- Product Content -->
+    <div class="product-content">
+      <!-- Product Image -->
+      <div class="product-image">
+        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/2068672/1.jpg?4794" alt="Custom Neon Signs">
+      </div>
+      
+      <!-- Product Details -->
+      <div class="product-details">
+        <div class="product-description">
+          <h2>About This Product</h2>
+          <p>Our Custom Neon Signs are the perfect way to add a unique and vibrant touch to any setting, whether it’s for home decor, an event, or a business. Designed to your specifications, each neon sign allows you to choose your own design, colors, and text, ensuring that it reflects your personal style or brand identity.</p>
+        </div>
+        <div class="product-features">
+          <h3>Features:</h3>
+          <ul>
+            <li>Personalized designs to match your style.</li>
+            <li>Wide range of colors and fonts available.</li>
+            <li>Energy-efficient and long-lasting LED lights.</li>
+            <li>Perfect for home decor, weddings, parties, and businesses.</li>
+            <li>Easy to install and lightweight.</li>
+          </ul>
+        </div>
+        <a href="#orderForm" class="buy-button">Buy Now</a>
+      </div>
+    </div>
+
+    <!-- Order Form -->
+    <div class="form-container">
+      <h2>Order Form</h2>
+      <form id="orderForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="number">Number:</label>
+        <input type="text" id="number" name="number" required pattern="\d{11}" title="Please enter exactly 11 digits">
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <label for="size">Size (in inches):</label>
+        <select id="size" name="size" required>
+          <option value="10x10">10x10</option>
+          <option value="12x12">12x12</option>
+          <option value="14x14">14x14</option>
+          <option value="16x16">16x16</option>
+          <option value="18x18">18x18</option>
+        </select>
+
+        <label for="color">Choose Color:</label>
+        <input type="color" id="color" name="color" value="#ff0000">
+
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="cod">Cash on Delivery</option>
+          <option value="online">Online Payment</option>
+        </select>
+
+        <center><a href="thank-you.html"><button class="button-64 my-4" role="button" ><span class="text">Sumbit</span></button></a></center>
+        
+      </form>
+    </div>
+
+    <!-- Customer Reviews -->
+<div class="reviews">
+    <h3>Customer Reviews</h3>
+    <div class="review">
+      <p><strong>Ahmed Ali</strong> <span style="color: #f39c12;">★ ★ ★ ★ ★</span></p>
+      <p>🔥 "Loved my neon sign! Adds a great vibe to my room. Delivery bhi fast thi. Highly recommended!"</p>
+    </div>
+    <div class="review">
+      <p><strong>Sarah</strong> <span style="color: #f39c12;">★ ★ ★ ★ ★</span></p>
+      <p>✨ "Absolutely love the neon sign! It's perfect for our living room and adds a unique charm. Fast delivery and great quality!"</p>
+    </div>
+    <div class="review">
+      <p><strong>Fatima</strong> <span style="color: #f39c12;">★ ★ ★ ★ ☆</span></p>
+      <p>😊 "Neon sign bohat acha hai, lekin thora sa mehnga laga. Phir bhi quality zabardast hai! 🎉"</p>
+    </div>
+    <div class="review">
+      <p><strong>Usman Khan</strong> <span style="color: #f39c12;">★ ★ ★ ★ ★</span></p>
+      <p>💡 "Ordered a custom sign for my cafe, aur yeh perfect hai! Dikhne mein bohat stylish hai aur setup bhi aasaan tha!"</p>
+    </div>
+    <div class="review">
+      <p><strong>Zara</strong> <span style="color: #f39c12;">★ ★ ★ ★ ★</span></p>
+      <p>🌈 "Best purchase ever! My friends love it too. Jazbaati feelings! 😂"</p>
+    </div>
+  </div>
+  
+
+    <!-- Related Items -->
+    <!-- Frequently Bought Together -->
+<div class="related-items">
+  <h3>Frequently Bought Together</h3>
+  <p>Explore other items that customers often purchase with our custom neon signs, such as LED backlighting kits, mounting accessories, and more.</p>
+
+  <div class="container-fluid">
+    <div class="row">
+      
+      <!-- Product: Neon Wall Art -->
+      <div class="col d-flex justify-content-center my-5" data-title="Neon Wall Art">
+        <div class="card shadow bg-transparent border border-light text-center" style="width: 22rem;">
+          <center><img class="mt-4" style="height: 250px; width: 250px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlD6B_hjRB-E9Vjk8B-Z9mipBGDcnIs9xSdw&s" class="card-img-top" alt="Neon Wall Art"></center>
+          <div class="card-body py-3">
+            <h2 style="color: rgb(255, 249, 249); font-family: babbins;" class="card-title fw-bold">Neon Wall Art</h2>
+            <p style="color: #fff3f3;" class="card-text lh-lg">Pre-designed neon lights in various shapes and themes, like animals, plants, or inspirational quotes, perfect for adding a modern touch to any room.</p>
+            <a href="order-form.html"><button class="button-64 my-4" role="button"><span class="text">Buy Now</span></button></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product: Neon Desk Lamps -->
+      <div class="col d-flex justify-content-center my-5">
+        <div class="card shadow bg-transparent border border-light text-center" style="width: 22rem;">
+          <center><img class="mt-4" style="height: 250px; width: 250px;" src="https://www.neon-works.co.uk/wp-content/uploads/2020/06/Neon-Works-Neon-Signs-Neon-Rainbow-for-desk-2-scaled.jpg" class="card-img-top" alt="Neon Desk Lamps"></center>
+          <div class="card-body py-3">
+            <h2 style="color: rgb(255, 249, 249); font-family: babbins;" class="card-title fw-bold">Neon Desk Lamps</h2>
+            <p style="color: #fff3f3;" class="card-text lh-lg">Compact neon lights designed to fit on desks or side tables, providing both functional lighting and a stylish decorative element.</p>
+            <a href="order-form.html"><button class="button-64 my-4" role="button"><span class="text">Buy Now</span></button></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product: Neon Clocks -->
+      <div class="col d-flex justify-content-center my-5">
+        <div class="card shadow bg-transparent border border-light text-center" style="width: 22rem;">
+          <center><img class="mt-4" style="height: 250px; width: 350px;" src="https://motionarray.imgix.net/1861463-gDxswpBPma-high_0010.jpg?w=660&q=60&fit=max&auto=format" class="card-img-top" alt="Neon Clocks"></center>
+          <div class="card-body py-3">
+            <h2 style="color: rgb(255, 249, 249); font-family: babbins;" class="card-title fw-bold">Neon Clocks</h2>
+            <p style="color: #fff3f3;" class="card-text lh-lg">Wall clocks with neon outlines or numbers, combining the practicality of a clock with the vibrant aesthetic of neon lights.</p>
+            <a href="order-form.html"><button class="button-64 my-4" role="button"><span class="text">Buy Now</span></button></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product: Neon Light Strips -->
+      <div class="col d-flex justify-content-center my-5">
+        <div class="card shadow bg-transparent border border-light text-center" style="width: 22rem;">
+          <center><img class="mt-4" style="height: 250px; width: 250px;" src="https://neonwalls.pk/cdn/shop/files/Neonglowingstrip1.png?v=1695654161" class="card-img-top" alt="Neon Light Strips"></center>
+          <div class="card-body py-3">
+            <h2 style="color: rgb(255, 249, 249); font-family: babbins;" class="card-title fw-bold">Neon Light Strips</h2>
+            <p style="color: #fff3f3;" class="card-text lh-lg">Flexible neon light strips that can be installed along walls, ceilings, or furniture to create ambient lighting and enhance the overall mood of a space.</p>
+            <a href="order-form.html"><button class="button-64 my-4" role="button"><span class="text">Buy Now</span></button></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product: Neon Mirror Frames -->
+      <div class="col d-flex justify-content-center my-5">
+        <div class="card shadow bg-transparent border border-light text-center" style="width: 22rem;">
+          <center><img class="mt-4" style="height: 250px; width: 250px;" src="https://neon-factory.com/cdn/shop/products/get-shit-done_neon_mirror.jpg?v=1646137788" class="card-img-top" alt="Neon Mirror Frames"></center>
+          <div class="card-body py-3">
+            <h2 style="color: rgb(255, 249, 249); font-family: babbins;" class="card-title fw-bold">Neon Mirror Frames</h2>
+            <p style="color: #fff3f3;" class="card-text lh-lg">Mirrors bordered with neon lights, adding a trendy and glamorous look to bathrooms, bedrooms, or dressing rooms.</p>
+            <a href="order-form.html"><button class="button-64 my-4" role="button"><span class="text">Buy Now</span></button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

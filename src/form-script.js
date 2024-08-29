@@ -4,10 +4,14 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
     // Get form data
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
+    const number = document.getElementById('number').value;
     const quantity = document.getElementById('quantity').value;
+    const size = document.getElementById('size').value;
+    const color = document.getElementById('color').value;
+    const paymentMethod = document.getElementById('paymentMethod').value;
 
     // Create order object
-    const order = { name, address, quantity };
+    const order = { name, address, quantity, size, color, paymentMethod };
 
     // Retrieve existing orders
     const orders = JSON.parse(localStorage.getItem('orders')) || [];

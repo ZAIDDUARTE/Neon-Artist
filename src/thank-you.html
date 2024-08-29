@@ -5,33 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You</title>
     <link rel="stylesheet" href="thank-you-styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #181818;
+            overflow: hidden; /* Hide overflow for falling confetti */
+            color: #fff;
+        }
+
+        .thank-you-container {
+            padding: 30px;
+            background-color: #222;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure it's above confetti */
+            color: #fff;
+        }
+
+        .thank-you-container h2 {
+            margin-bottom: 20px;
+            color: #ff9800; /* Bright color for header */
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff9800;
+            top: -10px;
+            animation: confettiFall 3s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #000000;
-}
-
-.thank-you-container {
-    border: 1px solid #ddd;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    max-width: 400px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-</style>
 <body>
     <div class="thank-you-container">
         <h2>Thank You for Buying!</h2>
         <p>Your order has been submitted successfully.</p>
     </div>
+
+    <!-- Confetti Animation -->
+    <script>
+        const colors = ['#ff9800', '#ff4d4d', '#4caf50', '#2196f3', '#ffeb3b']; // Different colors for confetti
+        const confettiCount = 50; // Number of confetti pieces
+
+        function createConfetti() {
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+                confetti.style.animationDelay = Math.random() * 2 + 's'; // Random delay
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's'; // Random duration
+                document.body.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+    </script>
 </body>
 </html>
